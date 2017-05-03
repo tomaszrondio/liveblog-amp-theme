@@ -35,7 +35,8 @@ var nunjucksOptions = {
 // Local paths.
 var paths = {
   templates: 'templates/*.html',
-  css: 'styles/*.css',
+  css: 'css/*.css',
+  less: 'less/*.less'
 };
 const BUILD_HTML = './index.html';
 
@@ -69,7 +70,10 @@ gulp.task('index-inject', [], () => {
       include_js_options: true,
       debug: DEBUG
     }, nunjucksOptions))
-    .pipe(gulp.src(paths.css)
+    .pipe(gulp.src('./less/liveblog.less')
+      .pipe(plugins.less({
+        paths: [path.join(__dirname, 'less', 'includes')]
+      }))
       .pipe(purify([BUILD_HTML]))
       .pipe(cleanCSS())
       .pipe(gulp.dest('./build/amp/'))
