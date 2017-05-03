@@ -6,16 +6,11 @@ var testdata = require(defaultThemePath + 'test');
 
 // Requires.
 var gulp = require('gulp')
-  , nunjucksify = require('nunjucksify')
   , gulpLoadPlugins = require('gulp-load-plugins')
-  , source = require('vinyl-source-stream')
-  , buffer = require('vinyl-buffer')
   , plugins = gulpLoadPlugins()
   , path = require('path')
-  , del = require('del')
   , eslint = require('gulp-eslint')
   , fs = require('fs')
-  , path = require('path')
   , nunjucks = require('nunjucks')
   , dateFilter = require('nunjucks-date-filter')
   , purify = require('gulp-purifycss')
@@ -47,9 +42,6 @@ const BUILD_HTML = './index.html';
 // Command-line and default theme options from theme.json.
 var theme = require('./theme.json');
 
-// Default theme.json.
-var defaultThemeJSON = JSON.parse(fs.readFileSync(defaultThemePath + 'theme.json', 'utf8'));
-
 // Utility function to get theme settings default values.
 function getThemeSettings(options) {
   var _options = {};
@@ -68,8 +60,7 @@ gulp.task('lint', () => gulp.src(['gulpfile.js'])
 
 // Inject API response into template for dev/test purposes.
 gulp.task('index-inject', [], () => {
-  return gulp.src('./templates/template-index.html')
-    //.pipe(plugins.inject(sources))
+  var task = gulp.src('./templates/template-index.html')
     .pipe(plugins.nunjucks.compile({
       theme: testdata.options,
       theme_json: JSON.stringify(testdata.options, null, 4),
@@ -78,21 +69,22 @@ gulp.task('index-inject', [], () => {
       include_js_options: true,
       debug: DEBUG
     }, nunjucksOptions))
-    .pipe(
-      gulp.src(paths.css)
-       .pipe(purify([BUILD_HTML])).pipe(cleanCSS())
-       .pipe(gulp.dest('./build/amp/'))
-       .pipe(plugins.inject(gulp.src(['./build/amp/*.css']), {
-         starttag: '<!-- inject:amp-styles -->',
-         transform: function(filepath, file) {
-           return file.contents.toString()
-         }
-       })
-      )
+    .pipe(gulp.src(paths.css)
+      .pipe(purify([BUILD_HTML]))
+      .pipe(cleanCSS())
+      .pipe(gulp.dest('./build/amp/'))
+      .pipe(plugins.inject(gulp.src(['./build/amp/*.css']), {
+        starttag: '<!-- inject:amp-styles -->',
+        transform: function(filepath, file) {
+          return file.contents.toString();
+        }
+      })
     )
-    .pipe(plugins.rename("index.html"))
-    .pipe(gulp.dest('.'))
-    .pipe(plugins.connect.reload());
+  )
+  .pipe(plugins.rename("index.html"))
+  .pipe(gulp.dest('.'))
+  .pipe(plugins.connect.reload());
+  return task;
 });
 
 // Inject jinja/nunjucks template for production use.
@@ -126,18 +118,18 @@ gulp.task('template-inject', [], () => {
  * Validate if AMP markup is valid
  * From: https://github.com/uncompiled/amp-bootstrap-example/
  */
-gulp.task('amp-validate', function() {
-  amphtmlValidator.getInstance().then(function (validator) {
+gulp.task('amp-validate', [], () => {
+  amphtmlValidator.getInstance().then((validator) => {
     var input = fs.readFileSync(BUILD_HTML, 'utf8');
     var result = validator.validateString(input);
-    ((result.status === 'PASS') ? console.log : console.error)(BUILD_HTML + ": " + result.status);
+    (result.status === 'PASS' ? console.info : console.error)(BUILD_HTML + ": " + result.status);
     for (var ii = 0; ii < result.errors.length; ii++) {
       var error = result.errors[ii];
       var msg = 'line ' + error.line + ', col ' + error.col + ': ' + error.message;
       if (error.specUrl !== null) {
         msg += ' (see ' + error.specUrl + ')';
       }
-      ((error.severity === 'ERROR') ? console.error : console.warn)(msg);
+      (error.severity === 'ERROR' ? console.error : console.warn)(msg);
     }
   });
 });
