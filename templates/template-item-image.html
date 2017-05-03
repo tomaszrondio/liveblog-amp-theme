@@ -1,0 +1,13 @@
+<figure>
+  <amp-img src="{{ ref.item.meta.media.renditions.thumbnail.href }}"
+    layout="responsive"
+    width="{{ ref.item.meta.media.renditions.thumbnail.width }}"
+    height="{{ ref.item.meta.media.renditions.thumbnail.height }}">
+  </amp-img>
+  <figcaption>
+    {{ ref.item.meta.caption }}
+    {% if ref.item.meta.credit %}
+      {{ ref.item.meta.credit }}
+    {% endif %}
+  </figcaption>
+</figure>
