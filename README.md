@@ -1,5 +1,7 @@
 # Liveblog 3 AMP Theme
 
+[![Build Status](https://travis-ci.org/liveblog/liveblog-amp-theme.svg?branch=master)](https://travis-ci.org/liveblog/liveblog-amp-theme)
+
 AMP (Accelerated Mobile Pages) Live Blog Theme, based on Liveblog 3 SEO Theme.
 
 ## Develop
