@@ -81,7 +81,8 @@ gulp.task('index-inject', [], () => {
         starttag: '<!-- inject:amp-styles -->',
         transform: function(filepath, file) {
           return file.contents.toString();
-        }
+        },
+        removeTags: false
       })
     )
   )
