@@ -13,6 +13,23 @@
 
   <div class="lb-post-date">{{ item._updated | date('')  }}</div>
 
+  <!-- author plus avatar -->
+  <div class="lb-author">
+    {% if settings.showAuthor %}
+      <div class="lb-author__name">{{ item.publisher.display_name }}</div>
+      {% if settings.showAuthorAvatar %}
+        <amp-img class="lb-author__avatar" src="{{ item.publisher.picture_url }}"
+          layout="responsive"
+          width="45"
+          height="45" 
+          alt="Author" 
+          >
+        </amp-img>
+      {% endif %}
+    {% endif %}
+  </div>
+  <!-- end author -->
+
   <!-- item start -->
   {% for ref in item.groups[1].refs %}
     <div class="lb-item">
@@ -28,13 +45,5 @@
     </div>
   {% endfor %}
   <!-- item end -->
-
-  <!-- author plus avatar -->
-  <div class="lb-author">
-    {% if settings.showAuthor %}
-      <div class="lb-author__name">{{ item.publisher.display_name }}</div>
-    {% endif %}
-  </div>
-  <!-- end author -->
 
 </article>
