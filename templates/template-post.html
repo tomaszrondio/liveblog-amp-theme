@@ -18,7 +18,13 @@
     {% if settings.showAuthor %}
       <div class="lb-author__name">{{ item.publisher.display_name }}</div>
       {% if settings.showAuthorAvatar %}
-        <img class="lb-author__avatar" src="{{ item.publisher.picture_url }}" />
+        <amp-img class="lb-author__avatar" src="{{ item.publisher.picture_url }}"
+          layout="responsive"
+          width="45"
+          height="45" 
+          alt="Author" 
+          >
+        </amp-img>
       {% endif %}
     {% endif %}
   </div>
