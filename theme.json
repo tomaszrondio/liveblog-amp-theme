@@ -5,7 +5,11 @@
   "seoTheme": true,
   "ampTheme": true,
   "extends": "default",
-  "author": "Massimo Scamarcia <massimo.scamarcia@sourcefabric.org>",
+  "author": "Sourcefabric <contact@sourcefabric.org>",
+  "contributors": [
+    "Massimo Scamarcia <massimo.scamarcia@sourcefabric.org>",
+    "Aleksandar Backo Jelicic <aleksandar.jelicic@sourcefabric.org>"
+  ],
   "repository": {
     "type" : "git",
     "url" : "git@github.com:liveblog/liveblog-amp-theme"
