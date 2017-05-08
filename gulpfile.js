@@ -82,7 +82,7 @@ gulp.task('index-inject', [], () => {
         transform: function(filepath, file) {
           return file.contents.toString();
         },
-        removeTags: false
+        removeTags: true
       })
     )
   )
@@ -140,7 +140,7 @@ gulp.task('amp-validate', [], () => {
 });
 
 // Serve index.html for local testing.
-gulp.task('serve', ['index-inject'], () => {
+gulp.task('serve', ['index-inject', 'template-inject'], () => {
   plugins.connect.server({
     port: 8008,
     root: '.',
@@ -151,14 +151,11 @@ gulp.task('serve', ['index-inject'], () => {
 
 // Watch
 gulp.task('watch-static', ['serve'], () => {
-  var templates = gulp.watch(paths.templates, ['index-inject']);
+  var templates = gulp.watch(paths.templates, ['index-inject', 'template-inject']);
   templates.on('error', (e) => {
     console.error(e.toString());
   });
 });
 
-// Default build for production
+// Default build.
 gulp.task('default', ['index-inject', 'template-inject']);
-
-// Default build for development
-gulp.task('devel', ['index-inject']);
