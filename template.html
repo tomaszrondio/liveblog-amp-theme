@@ -12,6 +12,14 @@
   <amp-img src="{{ blog.picture_url }}"></amp-img>
   {% endif %}
 
+  <div class="lb-social-share">
+    <amp-social-share type="email"></amp-social-share>
+    <amp-social-share type="gplus"></amp-social-share>
+    <amp-social-share type="twitter"></amp-social-share>
+    <amp-social-share type="linkedin"></amp-social-share>
+    <amp-social-share type="whatsapp"></amp-social-share>
+  </div>
+
   <amp-live-list
     layout="container"
     data-poll-interval="15000"
@@ -32,6 +40,9 @@
   </amp-live-list>
 
 </div>
+{% block lightbox %}
+<amp-image-lightbox id="lb-lightbox" layout="nodisplay"></amp-image-lightbox>
+{% endblock %}
 
 <!-- endinject -->
 <!-- inject:template-analytics -->

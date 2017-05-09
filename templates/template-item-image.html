@@ -1,8 +1,11 @@
 <figure>
-  <amp-img src="{{ ref.item.meta.media.renditions.thumbnail.href }}"
+  <amp-img src="{{ ref.item.meta.media.renditions.viewImage.href }}"
+    on="tap:lb-lightbox"
+    role="button"
+    tabindex="{{ loop.index0 }}"
     layout="responsive"
-    width="{{ ref.item.meta.media.renditions.thumbnail.width }}"
-    height="{{ ref.item.meta.media.renditions.thumbnail.height }}"
+    width="{{ ref.item.meta.media.renditions.viewImage.width }}"
+    height="{{ ref.item.meta.media.renditions.viewImage.height }}"
     alt="AMP">
   </amp-img>
   <figcaption>

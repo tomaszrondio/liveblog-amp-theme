@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "seoTheme": true,
   "ampTheme": true,
+  "ampThemeInlineCss": "dist/liveblog.css",
   "extends": "default",
   "author": "Sourcefabric <contact@sourcefabric.org>",
   "contributors": [

@@ -17,12 +17,12 @@
   <div class="lb-author">
     {% if settings.showAuthor %}
       <div class="lb-author__name">{{ item.publisher.display_name }}</div>
-      {% if settings.showAuthorAvatar %}
+      {% if settings.showAuthorAvatar and item.publisher.picture_url %}
         <amp-img class="lb-author__avatar" src="{{ item.publisher.picture_url }}"
-          layout="responsive"
+          layout="fixed"
           width="45"
-          height="45" 
-          alt="Author" 
+          height="45"
+          alt="Author"
           >
         </amp-img>
       {% endif %}
@@ -37,10 +37,10 @@
         {% include "template-item-embed.html" %}
       {% elif ref.item.item_type == "image" %}
         {% include "template-item-image.html" %}
-      {% elif ref.item.item_type == "text" %}
+      {% elif ref.item.item_type == "text" or ref.item.item_type == "comment" %}
         <article>{{ ref.item.text | safe }}</article>
       {% else %}
-      <i>Item type "{{ ref.item.item_type }}" not supported yet in AMP!</i>
+      <i>This content is not currently available.</i>
       {% endif %}
     </div>
   {% endfor %}

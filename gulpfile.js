@@ -76,8 +76,8 @@ gulp.task('index-inject', [], () => {
       }))
       .pipe(purify([BUILD_HTML]))
       .pipe(cleanCSS())
-      .pipe(gulp.dest('./build/amp/'))
-      .pipe(plugins.inject(gulp.src(['./build/amp/*.css']), {
+      .pipe(gulp.dest('./dist/'))
+      .pipe(plugins.inject(gulp.src(['./dist/*.css']), {
         starttag: '<!-- inject:amp-styles -->',
         transform: function(filepath, file) {
           return file.contents.toString();
