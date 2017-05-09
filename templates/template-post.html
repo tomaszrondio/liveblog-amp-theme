@@ -40,7 +40,9 @@
       {% elif ref.item.item_type == "text" or ref.item.item_type == "comment" %}
         <article>{{ ref.item.text | safe }}</article>
       {% else %}
-      <i>This content is not currently available.</i>
+      <article>
+        <i class="lb-item--info">This content is not currently available.</i>
+      </article>
       {% endif %}
     </div>
   {% endfor %}
