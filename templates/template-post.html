@@ -21,8 +21,8 @@
         <amp-img class="lb-author__avatar" src="{{ item.publisher.picture_url }}"
           layout="fixed"
           width="45"
-          height="45"
-          alt="Author"
+          height="45" 
+          alt="{{ item.publisher.display_name }}" 
           >
         </amp-img>
       {% endif %}
@@ -40,7 +40,9 @@
       {% elif ref.item.item_type == "text" or ref.item.item_type == "comment" %}
         <article>{{ ref.item.text | safe }}</article>
       {% else %}
-      <i>This content is not currently available.</i>
+      <article>
+        <i class="lb-item--info">This content is not currently available.</i>
+      </article>
       {% endif %}
     </div>
   {% endfor %}
