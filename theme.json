@@ -1,7 +1,7 @@
 {
   "label": "Liveblog 3 AMP Theme",
   "name": "amp",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "seoTheme": true,
   "ampTheme": true,
   "extends": "default",
@@ -19,6 +19,15 @@
   "license": "AGPL-3.0",
   "devStyles": ["dist/amp-2c75f8a8ba.css"],
   "styles": ["dist/amp-2c75f8a8ba.css"],
+  "options": [
+    {
+        "name": "postsPerPage",
+        "label": "Number of posts per page",
+        "type": "number",
+        "default": 100,
+        "help": "Be aware that paging is not yet available for the Liveblog 3 AMP theme"
+    }
+   ],
   "i18n": {
         "cs": {
           "Highlights": "Hlavní body",
@@ -78,7 +87,7 @@
           "Show highlighted post only": "Anzeigen hervorgehoben Beitrag ist nur",
           "Sort by:": "Ordnen nach",
           "Updated": "Aktualisiert am",
-          "Your comment was sent for approval": "Ihr Kommentar wartet auf Freischaltung,",
+          "Your comment was sent for approval": "Ihr Kommentar wartet auf Freischaltung",
           "credit:": "Bild:"
         }, "fi": {
           "Highlights": "Kohokohtia",
