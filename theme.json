@@ -1,7 +1,7 @@
 {
-  "label": "Liveblog 3 AMP Theme",
-  "name": "amp",
-  "version": "0.1.32",
+  "label": "Liveblog 3 AMP Theme - tomek test",
+  "name": "ampt",
+  "version": "0.1.40",
   "seoTheme": true,
   "ampTheme": true,
   "extends": "default",
