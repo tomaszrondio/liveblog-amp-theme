@@ -121,7 +121,7 @@ class="lb-post list-group-item show-author-avatar  {% if item.lb_highlight %}lb-
     {% endif %}
   {% endif %}
 
-  {% if gallery %}
+  {% if gallery and settings.showGallery %}
     {% include "template-item-gallery.html" %}
   {% elif type == "comment" %}
     {% include "template-post-comment.html" %}
