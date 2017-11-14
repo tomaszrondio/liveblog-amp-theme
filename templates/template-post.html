@@ -75,10 +75,13 @@ class="lb-post list-group-item show-author-avatar  {% if item.lb_highlight %}lb-
           {{ translate('Comment by') }} {{ mainItem.commenter }}
         {% elif mainItem.syndicated_creator and settings.showSyndicatedAuthor %}
           {{ mainItem.syndicated_creator.display_name }}
+        {% elif item.syndication_in and not settings.showSyndicatedAuthor %}
+          <span class="lb-producer{% if settings.showSyndicatedAuthor %} lb-producer__author{% endif %}">{{ item.syndication_in.producer_blog_title }}</span>
         {% elif mainItem.original_creator %}
           {{ mainItem.original_creator.display_name }}
         {% endif %}
-       
+
+       {{settings.showSyndicatedAuthor}}
         </div>
         {% if settings.showAuthorAvatar %}
           {% if type == 'comment' %}
