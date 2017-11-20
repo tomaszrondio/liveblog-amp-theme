@@ -64,6 +64,13 @@ body.lb-wrapBody {
   /* pinned posts */
   /* highlighted posts */
 }
+.lb-timeline .lb-post-updated {
+  color: #ACACAC;
+  font-size: .9em;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  margin-left: 60px;
+}
 .lb-timeline .description {
   margin: 0px 0px 20px 0px;
 }
