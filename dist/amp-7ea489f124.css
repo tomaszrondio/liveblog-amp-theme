@@ -1,6 +1,10 @@
 body.lb-wrapBody {
   line-height: 1;
 }
+.lb-timeline h4,
+.lb-timeline h5 {
+  margin: 0;
+}
 .lb-timeline ol,
 .lb-timeline ul {
   list-style: none;
@@ -1140,6 +1144,7 @@ html.lb-wrapHtml {
 .lb-timeline article h5 {
   font-size: 1.06em;
   font-weight: bold;
+  margin-bottom: 0.7em;
 }
 .lb-timeline article h5 {
   font-size: 1em;
@@ -1149,7 +1154,7 @@ html.lb-wrapHtml {
   font-weight: bold;
 }
 .lb-timeline article p {
-  margin: 1em 0;
+  margin: 0.7em 0;
 }
 .lb-timeline article .liveblog--card {
   font-size: 0.9em;
