@@ -1,53 +1,64 @@
 {
-  "label": "Liveblog 3 AMP Theme",
-  "name": "amp",
-  "version": "3.3.17",
+  "label": "ZEIT ONLINE AMP Theme",
+  "name": "zon-amp",
+  "version": "0.1.0",
   "seoTheme": true,
   "ampTheme": true,
-  "extends": "default",
+  "extends": "amp",
   "onlyOwnCss": "true",
-  "author": "Sourcefabric <contact@sourcefabric.org>",
+  "author": "ZEIT ONLINE <kontakt@zeit.de>",
   "contributors": [
-    "Massimo Scamarcia <massimo.scamarcia@sourcefabric.org>",
-    "Aleksandar Backo Jelicic <aleksandar.jelicic@sourcefabric.org>",
-    "Tomasz Rondio <tomasz.rondio@sourcefabric.org>"
+    "Moritz Stoltenburg <moritz.stoltenburg@zeit.de>"
   ],
   "repository": {
     "type" : "git",
-    "url" : "git@github.com:liveblog/liveblog-amp-theme"
+    "url" : "git@github.com:ZeitOnline/liveblog-amp-theme"
   },
   "license": "AGPL-3.0",
   "devStyles": ["dist/amp-7ea489f124.css"],
   "styles": ["dist/amp-7ea489f124.css"],
   "options": [
     {
-        "name": "postsPerPage",
-        "label": "Number of posts per page",
-        "type": "number",
-        "default": 100,
-        "help": "Be aware that paging is not yet available for the Liveblog 3 AMP theme"
-    },
-    {
-        "name": "canComment",
-        "type": null
-    },
-    {
-        "name": "autoApplyUpdates",
-        "type": null
-    },
-    {
-        "name": "hasHighlights",
-        "type": null
-    },
-    {
-        "name": "permalinkDelimiter",
-        "type": null
-    },
-    {
-        "name": "stickyPosition",
-        "type": null
+      "name": "language",
+      "label": "Theme language",
+      "type": "select",
+      "options": [
+        {
+          "value": "en",
+          "label": "English"
+        },
+        {
+          "value": "fi",
+          "label": "Finnish"
+        },
+        {
+          "value": "de",
+          "label": "Deutsch"
+        },
+        {
+          "value": "fr",
+          "label": "Français"
+        },
+        {
+          "value": "nl",
+          "label": "Nederlands"
+        },
+        {
+          "value": "no",
+          "label": "Norsk"
+        },
+        {
+          "value": "cs",
+          "label": "Čeština"
+        },
+        {
+          "value": "ro",
+          "label": "Română"
+        }
+      ],
+      "default": "de"
     }
-   ],
+  ],
   "i18n": {
         "cs": {
           "Highlights": "Hlavní body",
