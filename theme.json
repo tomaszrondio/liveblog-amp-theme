@@ -1,7 +1,7 @@
 {
   "label": "ZEIT ONLINE AMP Theme",
   "name": "zon-amp",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "seoTheme": true,
   "ampTheme": true,
   "extends": "amp",
@@ -17,48 +17,7 @@
   "license": "AGPL-3.0",
   "devStyles": ["dist/amp-7ea489f124.css"],
   "styles": ["dist/amp-7ea489f124.css"],
-  "options": [
-    {
-      "name": "language",
-      "label": "Theme language",
-      "type": "select",
-      "options": [
-        {
-          "value": "en",
-          "label": "English"
-        },
-        {
-          "value": "fi",
-          "label": "Finnish"
-        },
-        {
-          "value": "de",
-          "label": "Deutsch"
-        },
-        {
-          "value": "fr",
-          "label": "Français"
-        },
-        {
-          "value": "nl",
-          "label": "Nederlands"
-        },
-        {
-          "value": "no",
-          "label": "Norsk"
-        },
-        {
-          "value": "cs",
-          "label": "Čeština"
-        },
-        {
-          "value": "ro",
-          "label": "Română"
-        }
-      ],
-      "default": "de"
-    }
-  ],
+  "options": [],
   "i18n": {
         "cs": {
           "Highlights": "Hlavní body",
