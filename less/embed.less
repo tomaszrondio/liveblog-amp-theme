@@ -25,14 +25,18 @@
 
 .lb-post--sticky {
   margin-top: 0;
+  max-width: 740px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   &::before {
     content: none;
   }
-}
 
-.lb-post--sticky + .lb-post {
-  margin-top: 40px;
+  .lb-item {
+    background-color: #fff;
+    padding: 20px 14px;
+  }
 }
 
 @media @tablet {
@@ -45,6 +49,13 @@
       top: 80px;
     }
   }
+  .lb-post--sticky {
+    margin-top: 0;
+
+    .lb-item {
+      padding: 40px;
+    }
+  }
 }
 
 @media @desktop {
@@ -53,6 +64,10 @@
       left: 0;
     }
   }
+}
+
+.lb-post--sticky + .lb-post:not(.lb-post--sticky) {
+  margin-top: 40px;
 }
 
 .lb-post-updated {
@@ -101,7 +116,6 @@
   color: @yellow;
   content: "\2605";
   margin-right: 8px;
-  // vertical-align: text-top;
 }
 
 @media @tablet {
@@ -471,12 +485,6 @@
 
   .mod--nobackground {
     background: none;
-  }
-
-  /* highlighted posts */
-
-  .highlight-icon {
-    width: 14px;
   }
 
 }
